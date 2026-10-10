@@ -1,0 +1,47 @@
+{"properties": [
+  {
+    "name": "app.jwt.issuer",
+    "type": "java.lang.String",
+    "description": "A description for 'app.jwt.issuer'"
+  },
+  {
+    "name": "jwt.issuer",
+    "type": "java.lang.String",
+    "description": "A description for 'jwt.issuer'"
+  },
+  {
+    "name": "spring.web.cors.allowed-origins",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.web.cors.allowed-origins'"
+  },
+  {
+    "name": "app.jwt.expirationMinutes",
+    "type": "java.lang.String",
+    "description": "A description for 'app.jwt.expirationMinutes'"
+  },
+  {
+    "name": "app.jwt.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'app.jwt.secret'"
+  },
+  {
+    "name": "app.jwt.expirationMinutes",
+    "type": "java.lang.String",
+    "description": "A description for 'app.jwt.expirationMinutes'"
+  },
+  {
+    "name": "app.jwt.expirationMinutes",
+    "type": "java.lang.String",
+    "description": "A description for 'app.jwt.expirationMinutes'"
+  },
+  {
+    "name": "app.jwt.expiration-minutes",
+    "type": "java.lang.String",
+    "description": "A description for 'app.jwt.expiration-minutes'"
+  },
+  {
+    "name": "app.cors.allowed-origin",
+    "type": "java.lang.String",
+    "description": "A description for 'app.cors.allowed-origin'"
+  }
+]}
