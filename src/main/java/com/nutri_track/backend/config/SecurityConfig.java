@@ -1,4 +1,3 @@
-
 package com.nutri_track.backend.config;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -29,8 +28,11 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session
                 .sessionCreationPolicy(
-                    SessionCreationPolicy.STATELESS))
+                    SessionCreationPolicy.STATELESS
+                )
+            )
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers(
                     HttpMethod.POST,
                     "/api/auth/register",
@@ -42,7 +44,8 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
             )
             .oauth2ResourceServer(oauth2 ->
-                oauth2.jwt(Customizer.withDefaults()));
+                oauth2.jwt(Customizer.withDefaults())
+            );
 
         return http.build();
     }
@@ -61,22 +64,32 @@ public class SecurityConfig {
                 new CorsConfiguration();
 
         configuration.setAllowedOrigins(
-            List.of(frontendOrigin));
+            List.of(frontendOrigin.trim())
+        );
 
         configuration.setAllowedMethods(List.of(
-            "GET", "POST", "PUT", "PATCH",
-            "DELETE", "OPTIONS"
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE",
+            "OPTIONS"
         ));
 
         configuration.setAllowedHeaders(List.of(
-            "Authorization", "Content-Type"
+            "Authorization",
+            "Content-Type"
         ));
+
+        configuration.setAllowCredentials(false);
 
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
 
         source.registerCorsConfiguration(
-            "/**", configuration);
+            "/**",
+            configuration
+        );
 
         return source;
     }
